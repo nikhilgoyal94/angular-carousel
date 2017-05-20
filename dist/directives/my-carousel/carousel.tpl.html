@@ -1,0 +1,18 @@
+<div class="slideshow-container">
+
+    <div class="mySlides fade" ng-repeat="data in carouselData track by $index">
+        <div class="numbertext" ng-if="showSlideNumber">{{$index + 1}} / {{carouselData.length}}</div>
+        <img ng-src="{{data.src}}" style="max-width: 100%; max-height: 100%;" />
+        <div class="text" ng-if="shouldShowCaption">{{data.caption}}</div>
+    </div>
+
+    <a class="prev" ng-click="plusSlides(-1)" ng-if="showNavigators">&#10094;</a>
+    <a class="next" ng-click="plusSlides(1)" ng-if="showNavigators">&#10095;</a>
+
+</div>
+
+<br>
+
+<div style="text-align:center" ng-if="showBullets">
+    <span ng-repeat="data in carouselData track by $index" ng-click="currentSlide($index);" class="dot"></span>
+</div>
