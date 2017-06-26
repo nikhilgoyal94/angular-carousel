@@ -40,12 +40,19 @@ carousel.directive("myCarousel", [ "$interval", "$timeout",
                     var slides = document.getElementsByClassName("mySlides");
 
                     for (var i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                        slides[slideIndex].style.opacity = "0";
+                        if(slides[i]){
+                            slides[i].style.display = "none";
+                        }
+                        
+                        if(slides[slideIndex]){
+                            slides[slideIndex].style.opacity = "0";
+                        }
                     }
 
-                    slides[slideIndex].style.display = "block";
-                    slides[slideIndex].style.opacity = "1";
+                    if(slides[slideIndex]){
+                        slides[slideIndex].style.display = "block";
+                        slides[slideIndex].style.opacity = "1";
+                    }
                 };
 
                 /**
